@@ -14,7 +14,7 @@
     <div id="app"></div>
     <script type="text/babel">
         class App extends React.Component {
-            nameState = {
+            state = {
                 name: 'Ryu',
                 age: 35
             }
@@ -26,14 +26,17 @@
             ]
             onButtonClick = (e) => {
                 console.log(e, "Button Clicked");
-                console.log(this.nameState);
+                console.log(this.state);
+                this.setState({
+                    name:'Yoshi'
+                })
             }
-            onMouseOver(e) {
+            onMouseOver = (e) => {
                 console.log(e.target);
                 console.log(e.pageX);
                 console.log(e, "onMouseOver");
             }
-            onCopy(e) {
+            onCopy = (e) => {
                 console.log(e, "onCopy");
                 console.log("try being original");
             }
@@ -45,9 +48,9 @@
                             Math.random() * 10
                         }</p>
                         <p>My name is : {
-                            this.nameState.name
+                            this.state.name
                         } and I Am : {
-                                this.nameState.age
+                                this.state.age
                             }</p>
                         <button onClick={this.onButtonClick}>Click Me </button>
                         <button onMouseOver={this.onMouseOver}>Hower Me </button>
