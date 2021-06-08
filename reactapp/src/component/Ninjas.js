@@ -25,7 +25,10 @@ const Ninjas = (props) => {
     // });
     return (ninjas.map(ninja => {
         return ninja.age > 20 ? (
-            <NinjaItem ninja={ninja} />
+            <div>
+                <NinjaItem ninja={ninja} />
+                <br />
+            </div>
         ) : null;
     }));
 }
