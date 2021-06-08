@@ -21,7 +21,7 @@ class AddNinja extends Component {
     render() {
         return (
             <div>
-                <form onsubmit={this.onsubmit}>
+                <form onSubmit={this.onsubmit}>
                     <label htmlFor="name" >Name:</label>
                     <input type="text" id="name" onChange={this.onHandleTextChanges} />
                     <br /><br />
