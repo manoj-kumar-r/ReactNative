@@ -1,6 +1,6 @@
 // import React, { Component } from 'react';
 import NinjaItem from '../adapter/NinjaItem';
-
+import '../css/Ninja.css'
 //Functional Component 
 const Ninjas = (props) => {
     console.log(props);
