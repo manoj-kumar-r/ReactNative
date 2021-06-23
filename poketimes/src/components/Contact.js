@@ -1,4 +1,5 @@
 import React from 'react';
+import Rainbow from '../hoc/Rainbow';
 
 const Contact = (props) => {
     console.log(props);
@@ -15,4 +16,4 @@ const Contact = (props) => {
     );
 }
 
-export default Contact;
+export default Rainbow(Contact);
