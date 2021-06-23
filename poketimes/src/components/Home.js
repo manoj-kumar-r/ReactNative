@@ -1,14 +1,42 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Rainbow from '../hoc/Rainbow';
+import axios from 'axios';
+import PostItem from '../post/PostItem';
 
-const Home = () => {
-    return (
-        <div>
-            <div className="container">
-                <h4 className="center">Home</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae repudiandae repellat illo magni eligendi cupiditate voluptates eius nam voluptate. Incidunt nihil ullam quae quia officia quaerat, deserunt eligendi explicabo totam?</p>
+class Home extends Component {
+    state = {
+        posts: []
+    }
+    componentDidMount() {
+        axios
+            .get("https://jsonplaceholder.typicode.com/posts")
+            .then(response => {
+                console.log(response);
+                this.setState({
+                    posts: response.data.slice(0, 10)
+                })
+            });
+    }
+    render() {
+        const { posts } = this.state;
+        const postList = posts.length ? (
+            posts.map(post => {
+                return (
+                    <PostItem post={post} />
+                );
+            })
+        ) : (
+            <h4 className="center">No Posts Yet</h4> 
+        );
+        return (
+            <div>
+                <div className="container">
+                    <h4 className="center">Home</h4>
+                    <p>{postList}</p>
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
 }
-export default Rainbow(Home);
+
+export default Home;
