@@ -21,18 +21,16 @@ class Home extends Component {
         const { posts } = this.state;
         const postList = posts.length ? (
             posts.map(post => {
-                return (
-                    <PostItem post={post} />
-                );
+                return <PostItem post={post} />;
             })
         ) : (
-            <h4 className="center">No Posts Yet</h4> 
+            <h1 className="center">No Posts Yet</h1>
         );
         return (
             <div>
                 <div className="container">
-                    <h4 className="center">Home</h4>
-                    <p>{postList}</p>
+                    <h1 className="center">Home</h1>
+                    <div>{postList}</div>
                 </div>
             </div>
         );
