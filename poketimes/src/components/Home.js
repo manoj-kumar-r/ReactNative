@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import Rainbow from '../hoc/Rainbow';
 import axios from 'axios';
-import PostItem from '../post/PostItem';
+import { Link } from 'react-router-dom';
 
 class Home extends Component {
     state = {
@@ -21,7 +20,16 @@ class Home extends Component {
         const { posts } = this.state;
         const postList = posts.length ? (
             posts.map(post => {
-                return <PostItem post={post} />;
+                return (
+                    <div className="post card" key={post.id}>
+                        <div className="card-content">
+                            <Link to={'/' + post.id}>
+                                <span className="card-title">{post.title}</span>
+                            </Link>
+                            <p className="card-description">{post.body}</p>
+                        </div>
+                    </div>
+                );
             })
         ) : (
             <h1 className="center">No Posts Yet</h1>
