@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { NavBar } from './components/layout/NavBar';
 import Dashboard from './components/dashboard/Dashboard';
+import ProjectDetails from './components/projects/ProjectDetails';
 
 export default class App extends Component {
   render() {
@@ -10,7 +11,8 @@ export default class App extends Component {
         <div className="App">
           <NavBar />
           <Switch>
-            <Route path='/dashboard' component={Dashboard} />
+            <Route exact path='/dashboard' component={Dashboard} />
+            <Route exact path='/project/:id' component={ProjectDetails} />
           </Switch>
         </div>
       </BrowserRouter>
