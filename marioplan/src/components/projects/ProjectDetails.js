@@ -19,4 +19,4 @@ class ProjectDetails extends Component {
         );
     }
 }
-export default ProjectDetails
+export default ProjectDetails;
