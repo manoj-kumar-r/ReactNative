@@ -22,9 +22,8 @@ code {
 }
 
 .card { 
-  margin-top: 50px;
+  margin-top: 10px;
 }
- 
 
 input[type=text]:not(.browser-default):focus:not([readonly]),
 input[type=email]:not(.browser-default):focus:not([readonly]),
