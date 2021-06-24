@@ -10,6 +10,7 @@ const projectReducer = (state = initState, action) => {
   console.log(action);
   switch (action.type) {
     case 'CREATE_PROJECT':
+      console.log('Created Project', action.project);
       break;
 
     case 'DELETE_PROJECT':
