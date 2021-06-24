@@ -5,10 +5,10 @@ class ProjectList extends Component {
     render() {
         const { projects } = this.props;
         return (
-            <div className="project list secttion">
+            <div className="project-list secttion">
                 {
-                    projects.map(project => {
-                        return <ProjectSummary project={project} />
+                    projects && projects.map(project => {
+                        return <ProjectSummary project={project} key={project.id} />
                     })
                 }
             </div>
