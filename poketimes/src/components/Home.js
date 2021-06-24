@@ -9,15 +9,20 @@ class Home extends Component {
     //     posts: []
     // }
     // componentDidMount() {
-        // axios
-        //     .get("https://jsonplaceholder.typicode.com/posts")
-        //     .then(response => {
-        //         console.log(response);
-        //         this.setState({
-        //             posts: response.data.slice(0, 10)
-        //         })
-        //     });
+    // axios
+    //     .get("https://jsonplaceholder.typicode.com/posts")
+    //     .then(response => {
+    //         console.log(response);
+    //         this.setState({
+    //             posts: response.data.slice(0, 10)
+    //         })
+    //     });
     // }
+
+    deletePost = (id) => {
+        console.log('Delete Id :'+id);
+        this.props.deletePost(id);
+    }
     render() {
         console.log(this.props);
         const { posts } = this.props;
@@ -31,6 +36,9 @@ class Home extends Component {
                                 <span className="card-title red-text" > {post.title} </span>
                             </Link>
                             <p className="gray-text" > {post.body} </p>
+                            <div className="center">
+                                <button className="btn grey" onClick={() => { this.deletePost(post.id) }}>Delete Post</button>
+                            </div>
                         </div>
                     </div>
                 );
@@ -49,10 +57,23 @@ class Home extends Component {
     }
 }
 
+//Read data 
 const mapStateToProps = (state) => {
     return {
         posts: state.posts
     }
 }
 
-export default connect(mapStateToProps)(Home);
+//Delete data 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        deletePost: (id) => {
+            dispatch({
+                type: 'DELETE_POST',
+                id: id
+            })
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
