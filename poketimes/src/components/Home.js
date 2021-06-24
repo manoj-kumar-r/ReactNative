@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PokeBall from '../pokeball.png';
 import { connect } from 'react-redux';
+import { deletePost } from '../actions/PostAction';
 
 class Home extends Component {
     // state = {
@@ -20,7 +21,7 @@ class Home extends Component {
     // }
 
     deletePost = (id) => {
-        console.log('Delete Id :'+id);
+        console.log('Delete Id :' + id);
         this.props.deletePost(id);
     }
     render() {
@@ -68,10 +69,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         deletePost: (id) => {
-            dispatch({
-                type: 'DELETE_POST',
-                id: id
-            })
+            dispatch(deletePost(id))
         }
     }
 }
