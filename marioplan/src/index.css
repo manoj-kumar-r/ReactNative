@@ -23,6 +23,7 @@ code {
 
 .card { 
   margin-top: 10px;
+  border-radius: 20px;
 }
 
 input[type=text]:not(.browser-default):focus:not([readonly]),
