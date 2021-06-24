@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Notification from './Notifications';
 import ProjectList from '../projects/ProjectList';
 
-export default class Dashboard extends Component {
+class Dashboard extends Component {
     render() {
         return (
             <div className="dashboard container">
@@ -18,3 +18,4 @@ export default class Dashboard extends Component {
         );
     }
 }
+export default  Dashboard 

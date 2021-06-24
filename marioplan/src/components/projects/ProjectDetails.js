@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class ProjectDetails extends Component {
+class ProjectDetails extends Component {
     render() {
         const id = this.props.match.params.id;
         return (
@@ -19,3 +19,4 @@ export default class ProjectDetails extends Component {
         );
     }
 }
+export default ProjectDetails

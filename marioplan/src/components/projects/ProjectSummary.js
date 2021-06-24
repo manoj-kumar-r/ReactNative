@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class ProjectSummary extends Component {
+class ProjectSummary extends Component {
     render() {
         return (
             <div className="card z-depth-0 project-summary">
@@ -13,3 +13,4 @@ export default class ProjectSummary extends Component {
         );
     }
 }
+export default ProjectSummary
