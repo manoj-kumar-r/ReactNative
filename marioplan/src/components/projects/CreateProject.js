@@ -32,7 +32,9 @@ export default class CreateProject extends Component {
                                 <label htmlFor='content'>Content</label>
                                 <textarea id="content" className='materialize-textarea' onChange={this.onEditChange} />
                             </div>
-                            <button className="btn pink lighten-1 z-depth-0" onClick={this.onSubmit}>Create</button>
+                            <div className="center">
+                                <button className="btn pink lighten-1 z-depth-0" onClick={this.onSubmit}>Create</button>
+                            </div>
                         </form>
                     </div>
                 </div>

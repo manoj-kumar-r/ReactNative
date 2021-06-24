@@ -7,7 +7,7 @@ export const NavBar = () => {
     return (
         <nav className="nav-wrapper grey darker-3">
             <div className="container">
-                <Link to='/' className='brand-logo left'>Mario Plan</Link>
+                <Link to='/dashboard' className='brand-logo left'>Mario Plan</Link>
                 <SignedInLink/>
                 <SignedOutLink/>
             </div>

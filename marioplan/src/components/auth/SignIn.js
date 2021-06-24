@@ -34,7 +34,10 @@ class SignIn extends Component {
                                 <input type='password' id='password' onChange={this.onEditChange} />
                             </div>
 
+                            <div className="center">
                             <button className="btn pink lighten-1 z-depth-0" onClick={this.onSubmit}>Login</button>
+                            </div>
+                            
                         </form>
                     </div>
                 </div>
