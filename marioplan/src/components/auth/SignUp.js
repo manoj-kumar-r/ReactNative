@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-// import { signUp } from '../../store/actions/AuthActions';
+import { signUp } from '../../store/actions/AuthActions';
 import { compose } from 'redux';
 import { Redirect } from 'react-router-dom'
+
 
 class SignUp extends Component {
     state = {
@@ -15,6 +16,7 @@ class SignUp extends Component {
     onSubmit = (e) => {
         e.preventDefault();
         console.log(this.state);
+        this.props.signUp(this.state);
     }
 
     onEditChange = (e) => {
@@ -55,6 +57,9 @@ class SignUp extends Component {
 
                             <div className="center">
                                 <button className="btn pink lighten-1 z-depth-0" onClick={this.onSubmit}>Sign Up</button>
+                                {
+                                    authError ? (<div><p>{authError}</p></div>) : null
+                                }
                             </div>
                         </form>
                     </div>
@@ -72,12 +77,12 @@ const mapStateToProps = (state) => {
     }
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         signUp: (creds) => dispatch(signUp(creds))
-//     }
-// }
+const mapDispatchToProps = (dispatch) => {
+    return {
+        signUp: (newUser) => dispatch(signUp(newUser))
+    }
+}
 
 export default compose(
-    connect(mapStateToProps)
+    connect(mapStateToProps, mapDispatchToProps)
 )(SignUp);
