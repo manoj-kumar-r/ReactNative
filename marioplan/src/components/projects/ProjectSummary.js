@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import firebase from 'firebase/app';
+
 
 class ProjectSummary extends Component {
     render() {
@@ -8,7 +10,9 @@ class ProjectSummary extends Component {
                 <div className="card-content grey-text text-darken-3">
                     <span className="card-title">{project.title}</span>
                     <div>Posted by {project.authorFirstName} {project.authorLastName}</div>
-                    <p className='grey-text'>3rd Am</p>
+                    <p className='grey-text'>
+                    {/* {new Date(project.createdAt.toDate()).toDateString()} */}
+                    </p>
                 </div>
             </div>
         );
