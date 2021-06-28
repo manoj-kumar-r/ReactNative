@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import moment from 'moment'
+
 class ProjectSummary extends Component {
     render() {
         const { project } = this.props;
@@ -8,7 +10,7 @@ class ProjectSummary extends Component {
                     <span className="card-title">{project.title}</span>
                     <div>Posted by {project.authorFirstName} {project.authorLastName}</div>
                     <p className='grey-text'>
-                        {/* {new Date(project.createdAt.toDate()).toDateString()} */}
+                        <div>{moment(project.createdAt.toDate()).calendar()}</div>
                     </p>
                 </div>
             </div>

@@ -10,12 +10,18 @@ const NavBar = ({ auth, profile }) => {
   return (
     <nav className="nav-wrapper grey darken-3">
       <div className="container">
-        <Link to='/' className="brand-logo left">MarioPlan</Link>
+
         {
           auth.uid ? (
-            <SignedInLink profile={profile} />
+            <div>
+              <Link to='/' className="brand-logo left">{profile.firstname + " " + profile.lastname}</Link>
+              <SignedInLink profile={profile} />
+            </div>
           ) : (
-            <SignedOutLink />
+            <div>
+              <Link to='/' className="brand-logo left">Project Planning</Link>
+              <SignedOutLink />
+            </div>
           )
         }
       </div>
