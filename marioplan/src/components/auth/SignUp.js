@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+// import { signUp } from '../../store/actions/AuthActions';
+import { compose } from 'redux';
+import { Redirect } from 'react-router-dom'
 
 class SignUp extends Component {
     state = {
@@ -20,6 +23,10 @@ class SignUp extends Component {
         })
     }
     render() {
+        const { authError, auth } = this.props
+        if (auth.uid) {
+            return <Redirect to='/' />
+        }
         return (
             <div className="container">
                 <div className="card">
@@ -57,4 +64,20 @@ class SignUp extends Component {
         )
     }
 }
-export default connect()(SignUp);
+
+const mapStateToProps = (state) => {
+    return {
+        authError: state.auth.authError,
+        auth: state.firebase.auth
+    }
+}
+
+// const mapDispatchToProps = (dispatch) => {
+//     return {
+//         signUp: (creds) => dispatch(signUp(creds))
+//     }
+// }
+
+export default compose(
+    connect(mapStateToProps)
+)(SignUp);

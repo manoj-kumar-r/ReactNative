@@ -10,18 +10,10 @@ const NavBar = (props) => {
   return (
     <nav className="nav-wrapper grey darken-3">
       <div className="container">
+        <Link to='/' className="brand-logo left">MarioPlan</Link>
         {
-          props.auth.uid ? (
-            <div>
-              <Link to='/dashboard' className="brand-logo left">MarioPlan</Link>
-              <SignedInLink />
-            </div>
-          ) : (
-            <div>
-              <Link to='/dashboard' className="brand-logo">MarioPlan</Link>
-              <SignedOutLink />
-            </div>
-          )
+          props.auth.uid ? (<SignedInLink />
+          ) : (<SignedOutLink />)
         }
       </div>
     </nav>
